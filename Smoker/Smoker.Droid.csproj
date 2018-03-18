@@ -64,6 +64,9 @@
     <Compile Include="App.cs" />
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MainActivity.ui.cs">
+      <DependentUpon>MainActivity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
@@ -96,6 +99,9 @@
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <AndroidResource Include="Resources\values\Dimens.xml" />
+    <AndroidResource Include="Resources\values\Styles.xml" />
+    <AndroidResource Include="Resources\values\Colors.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmokerLib\SmokerLib.csproj">
@@ -103,6 +109,7 @@
       <Name>SmokerLib</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.

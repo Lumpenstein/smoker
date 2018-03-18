@@ -10,7 +10,7 @@ using Messenger = GalaSoft.MvvmLight.Messaging.Messenger;
 
 namespace Smoker
 {
-    [Activity(Label = "MVVM LIGHT SAMPLE", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Smoker", MainLauncher = true, Icon = "@drawable/icon")]
     public partial class MainActivity
     {
         // Keep track of bindings to avoid premature garbage collection
@@ -46,8 +46,13 @@ namespace Smoker
             // Keep track of the binding to avoid premature garbage collection
             _bindings.Add(
                 this.SetBinding(
-                    () => Vm.SmokesToday.ToString(),
+                    () => Vm.SmokesToday,
                     () => TvSmokesToday.Text));
+
+            // Actuate the IncrementCommand on the VM.
+            BtnAddSmoke.SetCommand(
+                "Click",
+                Vm.AddSmokeCommand);
 
         }
 
