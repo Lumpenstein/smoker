@@ -35,6 +35,10 @@ namespace Smoker
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
+            // Setup DB
+            Vm.SetupDB();
+            Vm.CreateSmokeTable();
+
             // Illustrates how to use the Messenger by receiving a message
             // and sending a message back.
             Messenger.Default.Register<NotificationMessageAction<string>>(
@@ -55,12 +59,13 @@ namespace Smoker
                 "Click",
                 Vm.AddSmokeCommand);
 
-            // Setup DB
-            Vm.SetupDB();
-            Vm.CreateSmokeTable();
+            // Actuate the IncrementCommand on the VM.
+            BtnRefresh.SetCommand(
+                "Click",
+                Vm.RefreshCommand);
 
-            Vm.UpdateSmokesToday();
-
+            // Get SmokesCOunt from DB
+            Vm.RefreshSmokesCount();
         }
 
         private void HandleNotificationMessage(NotificationMessageAction<string> message)

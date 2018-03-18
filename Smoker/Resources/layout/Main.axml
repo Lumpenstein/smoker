@@ -16,7 +16,8 @@
             android:id="@+id/main_tv_nbSmokesToday"
             android:layout_centerInParent="true"
             android:layout_marginBottom="100dp"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="40dp" />
         <Button
             android:text="+1 Smoke"
             android:layout_width="wrap_content"
@@ -24,5 +25,12 @@
             android:id="@+id/main_btn_addSmoke"
             android:layout_centerInParent="true"
             android:layout_below="@id/main_tv_nbSmokesToday" />
+        <Button
+            android:text="Refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_btnRefresh"
+            android:layout_below="@id/main_btn_addSmoke"
+            android:layout_centerInParent="true" />
     </RelativeLayout>
 </LinearLayout>

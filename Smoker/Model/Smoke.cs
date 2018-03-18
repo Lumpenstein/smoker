@@ -9,15 +9,24 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using SQLite.Net.Attributes;
 
 namespace smoker.Model
 {
+    [Table("Smokes")]
     public class Smoke
     {
-        public int SmokeID { get; set; }
+        public Smoke(int id, long time)
+        {
+            Id = id;
+            Time = time;
+        }
 
-        public int DateTime { get; set; }
 
+        [PrimaryKey, AutoIncrement, Column("_id")]
+        public int Id { get; set; }
+
+        public long Time { get; set; }
 
     }
 }

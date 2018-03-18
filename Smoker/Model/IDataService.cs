@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using smoker.Model;
 
 namespace Smoker.Model
 {
@@ -9,10 +11,11 @@ namespace Smoker.Model
 
         void CreateSmokesTable();
 
-        void InsertSmoke(DateTime time);
+        void InsertSmoke(DateTime time, Action<Exception> callback);
 
-        void GetSmokeCount();
+        void GetSmokeCount(Action<int, Exception> callback);
 
-        void GetData(Action<DataItem, Exception> callback);
+        void GetSmokes(Action<List<Smoke>, Exception> callback);
+
     }
 }

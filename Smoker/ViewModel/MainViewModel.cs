@@ -27,9 +27,8 @@ namespace Smoker.ViewModel
         private readonly IDataService _dataService;
         private readonly INavigationService _navigationService;
 
-        private int _smokesToday = 0;
-        private RelayCommand _addSmokeCommnand;
 
+        private int _smokesToday = 0;
         /// <summary>
         /// Sets and gets the Clock property.
         /// Changes to that property's value raise the PropertyChanged event. 
@@ -47,6 +46,7 @@ namespace Smoker.ViewModel
             }
         }
 
+        private RelayCommand _addSmokeCommnand;
         /// <summary>
         /// Gets the IncrementCommand.
         /// Use the "mvvmr*" snippet group to create more such commands.
@@ -60,7 +60,40 @@ namespace Smoker.ViewModel
                            () =>
                            {
                                SmokesToday++;
-                               _dataService.InsertSmoke(DateTime.Now);
+                               _dataService.InsertSmoke(DateTime.Now, (error) =>
+                               {
+                                   if (error != null)
+                                   {
+                                       return;
+                                   }
+                               });
+                           }));
+            }
+        }
+
+        private RelayCommand _refreshCommnand;
+        /// <summary>
+        /// Gets the IncrementCommand.
+        /// Use the "mvvmr*" snippet group to create more such commands.
+        /// </summary>
+        public RelayCommand RefreshCommand
+        {
+            get
+            {
+                return _refreshCommnand
+                       ?? (_refreshCommnand = new RelayCommand(
+                           () =>
+                           {
+
+                               _dataService.GetSmokeCount((count, error) =>
+                               {
+                                   if (error != null)
+                                   {
+                                       return;
+                                   }
+                                   SmokesToday = count;
+
+                               });
                            }));
             }
         }
@@ -74,17 +107,6 @@ namespace Smoker.ViewModel
         {
             _dataService = dataService;
             _navigationService = navigationService;
-
-            _dataService.GetData(
-                (item, error) =>
-                {
-                    if (error != null)
-                    {
-                        // Report error here
-                        return;
-                    }
-
-                });
         }
 
         ////public override void Cleanup()
@@ -95,7 +117,6 @@ namespace Smoker.ViewModel
         ////}
 
         private RelayCommand _sendMessageCommand;
-
         /// <summary>
         /// Gets the SendMessageCommand.
         /// </summary>
@@ -123,6 +144,8 @@ namespace Smoker.ViewModel
             }
         }
 
+
+
         public void SetupDB()
         {
             _dataService.SetupDB();
@@ -133,9 +156,17 @@ namespace Smoker.ViewModel
             _dataService.CreateSmokesTable();
         }
 
-        public void UpdateSmokesToday()
+        public void RefreshSmokesCount()
         {
-            _dataService.GetSmokeCount();
+            _dataService.GetSmokeCount((count, error) =>
+            {
+                if (error != null)
+                {
+                    return;
+                }
+                SmokesToday = count;
+            });
         }
+
     }
 }
