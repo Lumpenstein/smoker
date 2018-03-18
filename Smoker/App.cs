@@ -22,7 +22,7 @@ namespace Smoker
                     // Configure and register the MVVM Light NavigationService
                     var nav = new NavigationService();
                     SimpleIoc.Default.Register<INavigationService>(() => nav);
-                    nav.Configure(ViewModelLocator.SecondPageKey, typeof(SecondActivity));
+                    //nav.Configure(ViewModelLocator.SecondPageKey, typeof(SecondActivity));
 
                     // Register the MVVM Light DialogService
                     SimpleIoc.Default.Register<IDialogService, DialogService>();

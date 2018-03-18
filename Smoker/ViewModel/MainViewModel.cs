@@ -60,6 +60,7 @@ namespace Smoker.ViewModel
                            () =>
                            {
                                SmokesToday++;
+                               _dataService.InsertSmoke(DateTime.Now);
                            }));
             }
         }
@@ -120,6 +121,21 @@ namespace Smoker.ViewModel
                                 }));
                     }));
             }
+        }
+
+        public void SetupDB()
+        {
+            _dataService.SetupDB();
+        }
+
+        public void CreateSmokeTable()
+        {
+            _dataService.CreateSmokesTable();
+        }
+
+        public void UpdateSmokesToday()
+        {
+            _dataService.GetSmokeCount();
         }
     }
 }

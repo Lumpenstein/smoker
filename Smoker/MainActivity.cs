@@ -6,6 +6,7 @@ using GalaSoft.MvvmLight.Helpers;
 using GalaSoft.MvvmLight.Messaging;
 using smoker;
 using Smoker.ViewModel;
+using SQLite.Net.Async;
 using Messenger = GalaSoft.MvvmLight.Messaging.Messenger;
 
 namespace Smoker
@@ -53,6 +54,12 @@ namespace Smoker
             BtnAddSmoke.SetCommand(
                 "Click",
                 Vm.AddSmokeCommand);
+
+            // Setup DB
+            Vm.SetupDB();
+            Vm.CreateSmokeTable();
+
+            Vm.UpdateSmokesToday();
 
         }
 
