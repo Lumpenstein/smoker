@@ -20,7 +20,7 @@ namespace Smoker.ViewModel
         /// <summary>
         /// The key used by the NavigationService to go to the second page.
         /// </summary>
-        public const string SecondPageKey = "SecondPage";
+        public const string LogPageKey = "LogPage";
 
         /// <summary>
         /// Gets the Main property.
@@ -33,6 +33,14 @@ namespace Smoker.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public LogViewModel Log
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<LogViewModel>();
             }
         }
 
@@ -64,6 +72,7 @@ namespace Smoker.ViewModel
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<LogViewModel>();
         }
 
         /// <summary>

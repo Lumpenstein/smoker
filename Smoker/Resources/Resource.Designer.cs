@@ -80,29 +80,32 @@ namespace smoker
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060006
-			public const int GoBackButton = 2131099654;
-			
-			// aapt resource value: 0x7f060007
-			public const int NavigationParameterText = 2131099655;
-			
 			// aapt resource value: 0x7f060002
-			public const int main_btn_addSmoke = 2131099650;
-			
-			// aapt resource value: 0x7f060003
-			public const int main_btn_refresh = 2131099651;
-			
-			// aapt resource value: 0x7f060004
-			public const int main_btn_reset = 2131099652;
+			public const int NavigationParameterText = 2131099650;
 			
 			// aapt resource value: 0x7f060001
-			public const int main_tv_nbSmokesToday = 2131099649;
-			
-			// aapt resource value: 0x7f060000
-			public const int relativeLayout1 = 2131099648;
+			public const int log_btn_back = 2131099649;
 			
 			// aapt resource value: 0x7f060005
-			public const int textView1 = 2131099653;
+			public const int main_btn_addSmoke = 2131099653;
+			
+			// aapt resource value: 0x7f060008
+			public const int main_btn_logActivity = 2131099656;
+			
+			// aapt resource value: 0x7f060006
+			public const int main_btn_refresh = 2131099654;
+			
+			// aapt resource value: 0x7f060007
+			public const int main_btn_reset = 2131099655;
+			
+			// aapt resource value: 0x7f060004
+			public const int main_tv_nbSmokesToday = 2131099652;
+			
+			// aapt resource value: 0x7f060003
+			public const int relativeLayout1 = 2131099651;
+			
+			// aapt resource value: 0x7f060000
+			public const int textView1 = 2131099648;
 			
 			static Id()
 			{
@@ -118,10 +121,10 @@ namespace smoker
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int act_log = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int Second = 2130903041;
+			public const int act_main = 2130903041;
 			
 			static Layout()
 			{

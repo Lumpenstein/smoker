@@ -10,6 +10,11 @@ namespace Smoker
     public partial class MainActivity : ActivityBase
     {
         private TextView _tvSmokesToday;
+        private Button _btnAddSmoke;
+        private Button _btnRefresh;
+        private Button _btnReset;
+        private Button _btnLogActivity;
+
         public TextView TvSmokesToday
         {
             get
@@ -19,8 +24,6 @@ namespace Smoker
             }
         }
 
-
-        private Button _btnAddSmoke;
         public Button BtnAddSmoke
         {
             get
@@ -30,7 +33,6 @@ namespace Smoker
             }
         }
 
-        private Button _btnRefresh;
         public Button BtnRefresh
         {
             get
@@ -40,14 +42,21 @@ namespace Smoker
             }
         }
 
-
-        private Button _btnReset;
         public Button BtnReset
         {
             get
             {
                 return _btnReset
                        ?? (_btnReset = FindViewById<Button>(Resource.Id.main_btn_reset));
+            }
+        }
+
+        public Button BtnLogActivity
+        {
+            get
+            {
+                return _btnLogActivity
+                       ?? (_btnLogActivity = FindViewById<Button>(Resource.Id.main_btn_logActivity));
             }
         }
 

@@ -17,7 +17,7 @@ namespace Smoker.ViewModel
     /// See http://www.mvvmlight.net
     /// </para>
     /// </summary>
-    public class MainViewModel : ViewModelBase
+    public class LogViewModel : ViewModelBase
     {
         /// <summary>
         /// The <see cref="SmokesToday" /> property's name.
@@ -125,7 +125,7 @@ namespace Smoker.ViewModel
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel(
+        public LogViewModel(
             IDataService dataService,
             INavigationService navigationService)
         {
