@@ -1,4 +1,5 @@
-﻿using Android.Widget;
+﻿using Android.Support.V7.Widget;
+using Android.Widget;
 using GalaSoft.MvvmLight.Views;
 using smoker;
 
@@ -21,14 +22,6 @@ namespace Smoker
             }
         }
 
-        //public Button BtnBack
-        //{
-        //    get
-        //    {
-        //        return _btnBack
-        //               ?? (_btnBack = FindViewById<Button>(Resource.Id.log_btn_back));
-        //    }
-        //}
 
     }
 }
