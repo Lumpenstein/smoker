@@ -38,6 +38,11 @@ namespace Smoker.Design
             throw new NotImplementedException();
         }
 
+        public void ResetSmokes(Action<Exception> callback)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SetupDB(Action<Exception> callback)
         {
             throw new NotImplementedException();

@@ -69,6 +69,28 @@ namespace Smoker.Model
             }
         }
 
+        public void ResetSmokes(Action<Exception> callback)
+        {
+            lock (_lock)
+            {
+                try
+                {
+
+                    var x = 0;
+                    x = _db.DeleteAll<Smoke>();
+
+                    Console.WriteLine($"[D] {x} Smokes deleted.");
+
+                    callback(null);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(string.Format("[E] Failed to delete Smokes - reason = {0}", ex.Message));
+                    callback(ex);
+                }
+            }
+        }
+
         public void InsertSmoke(DateTime time, Action<Exception> callback)
         {
             lock (_lock)

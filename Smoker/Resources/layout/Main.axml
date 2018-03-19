@@ -29,8 +29,15 @@
             android:text="Refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/main_btnRefresh"
+            android:id="@+id/main_btn_refresh"
             android:layout_below="@id/main_btn_addSmoke"
+            android:layout_centerInParent="true" />
+        <Button
+            android:text="Reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_btn_reset"
+            android:layout_below="@id/main_btn_refresh"
             android:layout_centerInParent="true" />
     </RelativeLayout>
 </LinearLayout>

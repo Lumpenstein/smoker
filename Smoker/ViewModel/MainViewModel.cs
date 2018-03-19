@@ -73,7 +73,7 @@ namespace Smoker.ViewModel
 
         private RelayCommand _refreshCommnand;
         /// <summary>
-        /// Gets the IncrementCommand.
+        /// Refreshes the SmokesToday with value from DB.
         /// Use the "mvvmr*" snippet group to create more such commands.
         /// </summary>
         public RelayCommand RefreshCommand
@@ -84,7 +84,6 @@ namespace Smoker.ViewModel
                        ?? (_refreshCommnand = new RelayCommand(
                            () =>
                            {
-
                                _dataService.GetSmokeCount((count, error) =>
                                {
                                    if (error != null)
@@ -92,7 +91,32 @@ namespace Smoker.ViewModel
                                        return;
                                    }
                                    SmokesToday = count;
+                               });
+                           }));
+            }
+        }
 
+        private RelayCommand _resetSmokesCommnand;
+        /// <summary>
+        /// Gets the IncrementCommand.
+        /// Use the "mvvmr*" snippet group to create more such commands.
+        /// </summary>
+        public RelayCommand ResetSmokesCommand
+        {
+            get
+            {
+                return _resetSmokesCommnand
+                       ?? (_resetSmokesCommnand = new RelayCommand(
+                           () =>
+                           {
+                               _dataService.ResetSmokes((error) =>
+                               {
+                                   if (error != null)
+                                   {
+                                       return;
+                                   }
+
+                                   RefreshSmokesCount();
                                });
                            }));
             }

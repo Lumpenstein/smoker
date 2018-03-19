@@ -59,10 +59,15 @@ namespace Smoker
                 "Click",
                 Vm.AddSmokeCommand);
 
-            // Actuate the IncrementCommand on the VM.
+            // Actuate the RefreshCommand on the VM.
             BtnRefresh.SetCommand(
                 "Click",
                 Vm.RefreshCommand);
+
+            // Actuate the ResetCommand on the VM.
+            BtnReset.SetCommand(
+                "Click",
+                Vm.ResetSmokesCommand);
 
             // Get SmokesCOunt from DB
             Vm.RefreshSmokesCount();

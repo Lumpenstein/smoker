@@ -11,11 +11,14 @@ namespace Smoker.Model
 
         void CreateSmokesTable();
 
+        void ResetSmokes(Action<Exception> callback);
+
         void InsertSmoke(DateTime time, Action<Exception> callback);
 
         void GetSmokeCount(Action<int, Exception> callback);
 
         void GetSmokes(Action<List<Smoke>, Exception> callback);
+
 
     }
 }

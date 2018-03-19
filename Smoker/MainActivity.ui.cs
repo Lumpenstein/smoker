@@ -36,7 +36,18 @@ namespace Smoker
             get
             {
                 return _btnRefresh
-                       ?? (_btnRefresh = FindViewById<Button>(Resource.Id.main_btnRefresh));
+                       ?? (_btnRefresh = FindViewById<Button>(Resource.Id.main_btn_refresh));
+            }
+        }
+
+
+        private Button _btnReset;
+        public Button BtnReset
+        {
+            get
+            {
+                return _btnReset
+                       ?? (_btnReset = FindViewById<Button>(Resource.Id.main_btn_reset));
             }
         }
 
