@@ -6,6 +6,7 @@ using GalaSoft.MvvmLight.Helpers;
 using GalaSoft.MvvmLight.Messaging;
 using smoker;
 using Smoker.ViewModel;
+using SQLite.Net.Async;
 using Messenger = GalaSoft.MvvmLight.Messaging.Messenger;
 
 namespace Smoker
@@ -34,6 +35,10 @@ namespace Smoker
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
+            // Setup DB
+            Vm.SetupDB();
+            Vm.CreateSmokeTable();
+
             // Illustrates how to use the Messenger by receiving a message
             // and sending a message back.
             Messenger.Default.Register<NotificationMessageAction<string>>(
@@ -54,6 +59,18 @@ namespace Smoker
                 "Click",
                 Vm.AddSmokeCommand);
 
+            // Actuate the RefreshCommand on the VM.
+            BtnRefresh.SetCommand(
+                "Click",
+                Vm.RefreshCommand);
+
+            // Actuate the ResetCommand on the VM.
+            BtnReset.SetCommand(
+                "Click",
+                Vm.ResetSmokesCommand);
+
+            // Get SmokesCOunt from DB
+            Vm.RefreshSmokesCount();
         }
 
         private void HandleNotificationMessage(NotificationMessageAction<string> message)
