@@ -11,8 +11,6 @@ namespace Smoker
     public partial class LogActivity : ActivityBase
     {
         private Button _btnBack;
-        //private Button _btnBack;
-
         public Button BtnBack
         {
             get
@@ -22,6 +20,14 @@ namespace Smoker
             }
         }
 
-
+        private RecyclerView _rvLatestSmokes;
+        public RecyclerView RvLatestSmokes
+        {
+            get
+            {
+                return _rvLatestSmokes
+                       ?? (_rvLatestSmokes = FindViewById<RecyclerView>(Resource.Id.log_rv_latestSmokes));
+            }
+        }
     }
 }

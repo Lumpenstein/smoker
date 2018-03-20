@@ -17,4 +17,10 @@
         android:id="@+id/log_btn_back"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/log_rv_latestSmokes"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>
